@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>YIN Training Blog</title>
-</head>
-<body>
-welcome
-</body>
-</html>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class ="section">
+        {% for post in posts %}
+
+            <div class="post">
+                <div class="date">
+
+                </div>
+                <h1><a href="{%  url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                <p>{{ post.text|linebreaksbr }}</p>
+            </div>
+
+        {% endfor %}
+    </div>
+{% endblock %}
